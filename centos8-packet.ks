@@ -13,7 +13,7 @@ part raid.02 --size 2048 --asprimary --ondrive=sdb
 part raid.03 --size 4096 --grow --asprimary --ondrive=sda
 part raid.04 --size 4096 --grow --asprimary --ondrive=sdb
 raid /boot --fstype ext4 --device boot --label boot --level=RAID1 raid.01 raid.02
-raid pv.01 --fstype ext4 --device rootpv --label rootpv --level=RAID1 raid.03 raid.04
+raid pv.01 --fstype ext4 --device rootpv-raid --label rootpv-raid --level=RAID1 raid.03 raid.04
 volgroup rootpv pv.01
 logvol swap --recommended --vgname=rootpv --name=swap
 logvol / --vgname=rootpv --percent=100 --name=root
