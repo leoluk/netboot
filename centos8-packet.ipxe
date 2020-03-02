@@ -8,8 +8,4 @@ initrd ${repo}/images/pxeboot/initrd.img
 echo
 echo MD5sums:
 md5sum vmlinuz initrd.img
-
-echo Press Enter to install centos8-packet.ks
-read
-
 boot
