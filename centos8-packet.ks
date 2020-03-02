@@ -5,7 +5,7 @@ rootpw $1$+3DdoYEE$SNbn3erUpTEKFEL6cKuly/ --iscrypted
 reboot
 text
 url --url=https://mirror.init7.net/centos/8/BaseOS/x86_64/os
-bootloader --location=partition --append="rhgb quiet crashkernel=auto console=ttyS1,115200"
+bootloader --append="rhgb quiet crashkernel=auto console=ttyS1,115200"
 zerombr
 clearpart --all --initlabel
 autopart
