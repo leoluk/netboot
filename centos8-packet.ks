@@ -8,7 +8,15 @@ url --url=https://mirror.init7.net/centos/8/BaseOS/x86_64/os
 bootloader --append="rhgb quiet crashkernel=auto console=ttyS1,115200"
 zerombr
 clearpart --all --initlabel
-autopart
+part raid.01 --size 2048 --asprimary --ondrive=sda
+part raid.02 --size 2048 --asprimary --ondrive=sdb
+part raid.03 --size 4096 --grow --asprimary --ondrive=sda
+part raid.04 --size 4096 --grow --asprimary --ondrive=sdb
+raid /boot --fstype ext4 --device boot --label boot --level=RAID1 raid.01 raid.02
+raid pv.01 --fstype ext4 --device rootpv --label rootpv --level=RAID1 raid.03 raid.04
+volgroup rootpv pv.01
+logvol swap --recommended --vgname=rootpv
+logvol / --vgname=rootpv --percent=100 --name=root
 auth --passalgo=sha512 --useshadow
 selinux --enforcing
 firewall --disabled
