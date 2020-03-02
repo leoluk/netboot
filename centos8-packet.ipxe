@@ -3,7 +3,7 @@
 set repo https://mirror.init7.net/centos/8/BaseOS/x86_64/os
 
 imgfree
-kernel ${repo}/images/pxeboot/vmlinuz repo=${repo} console=ttyS1,115200 initrd=initrd.img ks=https://raw.githubusercontent.com/leoluk/netboot/master/centos8-packet.ks ip=dhcp
+kernel ${repo}/images/pxeboot/vmlinuz console=ttyS1,115200 initrd=initrd.img ks=https://raw.githubusercontent.com/leoluk/netboot/master/centos8-packet.ks ip=dhcp
 initrd ${repo}/images/pxeboot/initrd.img
 echo
 echo MD5sums:
